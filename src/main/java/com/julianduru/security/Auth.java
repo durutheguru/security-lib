@@ -27,7 +27,7 @@ public class Auth {
 
 
     public static void setContext(Authentication auth) {
-        SecurityContext context = SecurityContextHolder.createEmptyContext();
+        var context = SecurityContextHolder.createEmptyContext();
         context.setAuthentication(auth);
 
         SecurityContextHolder.setContext(context);
@@ -35,14 +35,14 @@ public class Auth {
 
 
     public static Optional<UserAuthId> getUserAuthId() {
-        Authentication authentication = getContext();
+        var authentication = getContext();
         if (authentication == null) {
             return Optional.empty();
         }
 
-        Object principal = authentication.getPrincipal();
+        var principal = authentication.getPrincipal();
 
-        String user = principal instanceof User ? ((User)principal).getUsername() : principal.toString();
+        var user = principal instanceof User ? ((User)principal).getUsername() : principal.toString();
         final String[] roleId = {""};
 
         authentication.getAuthorities()
@@ -50,13 +50,13 @@ public class Auth {
                 .findFirst()
                 .ifPresent(a -> roleId[0] = a.getAuthority());
 
-        UserAuthId authId = new UserAuthId(user, roleId[0]);
+        var authId = new UserAuthId(user, roleId[0]);
         return Optional.of(authId);
     }
 
 
     public static UserAuthId getUserAuthId(boolean errorIfMissing) throws NoAuthenticatedUserException {
-        Optional<UserAuthId> authId = getUserAuthId();
+        var authId = getUserAuthId();
         if (!authId.isPresent()) {
             if (errorIfMissing) {
                 throw new NoAuthenticatedUserException("User details could not be found in Security Context");

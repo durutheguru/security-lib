@@ -4,12 +4,11 @@ package com.julianduru.security.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.julianduru.util.jpa.ZonedDateTimeConverter;
 import com.julianduru.util.json.ZonedDateTimeDeserializer;
 import com.julianduru.util.json.ZonedDateTimeSerializer;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -30,16 +29,16 @@ public class BaseEntity {
     private Long id;
 
 
-    @CreatedDate
     @Column(nullable = false, updatable = false)
     @JsonSerialize(using = ZonedDateTimeSerializer.class)
     @JsonDeserialize(using = ZonedDateTimeDeserializer.class)
+    @Convert(converter = ZonedDateTimeConverter.class)
     private ZonedDateTime timeAdded;
 
 
-    @LastModifiedDate
     @JsonSerialize(using = ZonedDateTimeSerializer.class)
     @JsonDeserialize(using = ZonedDateTimeDeserializer.class)
+    @Convert(converter = ZonedDateTimeConverter.class)
     private ZonedDateTime timeUpdated;
 
 
