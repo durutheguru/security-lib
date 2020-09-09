@@ -7,21 +7,26 @@
     <parent>
         <groupId>com.julianduru</groupId>
         <artifactId>parent-lib</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.2.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>security-lib</artifactId>
 
     <properties>
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+        <sonar.projectKey.config>durutheguru_security-lib</sonar.projectKey.config>
+        <sonar.organization.config>durutheguru</sonar.organization.config>
+        <sonar.host.url.config>https://sonarcloud.io</sonar.host.url.config>
+        <sonar.qualitygate.wait.config>false</sonar.qualitygate.wait.config>
     </properties>
 
+    
     <dependencies>
 
         <dependency>
             <groupId>com.julianduru</groupId>
             <artifactId>util-lib</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>0.2.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
