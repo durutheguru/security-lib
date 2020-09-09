@@ -20,6 +20,7 @@
         <sonar.qualitygate.wait.config>false</sonar.qualitygate.wait.config>
     </properties>
 
+    
     <dependencies>
 
         <dependency>
