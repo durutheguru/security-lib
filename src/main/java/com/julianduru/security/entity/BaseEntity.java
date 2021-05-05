@@ -21,7 +21,7 @@ import java.time.ZonedDateTime;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class BaseEntity {
+public class BaseEntity implements TimeStampAware {
 
 
     @Id
