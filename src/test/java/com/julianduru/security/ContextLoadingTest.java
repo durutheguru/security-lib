@@ -21,9 +21,6 @@ import org.springframework.test.context.ActiveProfiles;
         "com.julianduru.security.repository"
     }
 )
-@ActiveProfiles({
-    "localtest"
-})
 public class ContextLoadingTest {
 
 
