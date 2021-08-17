@@ -57,7 +57,7 @@ public class Auth {
 
     public static UserAuthId getUserAuthId(boolean errorIfMissing) throws NoAuthenticatedUserException {
         var authId = getUserAuthId();
-        if (!authId.isPresent()) {
+        if (authId.isEmpty()) {
             if (errorIfMissing) {
                 throw new NoAuthenticatedUserException("User details could not be found in Security Context");
             }
