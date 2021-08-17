@@ -4,6 +4,7 @@ package com.julianduru.security.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.julianduru.util.entity.TimeStampAware;
 import com.julianduru.util.jpa.ZonedDateTimeConverter;
 import com.julianduru.util.json.ZonedDateTimeDeserializer;
 import com.julianduru.util.json.ZonedDateTimeSerializer;
@@ -60,6 +61,7 @@ public class BaseEntity implements TimeStampAware {
     }
 
 
-
 }
+
+
 
