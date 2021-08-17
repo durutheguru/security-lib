@@ -1,0 +1,41 @@
+package com.julianduru.security.data;
+
+
+import com.julianduru.security.entity.UserAuthority;
+import com.julianduru.security.repository.UserAuthorityMappingRepository;
+import com.julianduru.util.test.JpaDataProvider;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Component;
+
+/**
+ * created by julian
+ */
+@Component
+@RequiredArgsConstructor
+public class UserAuthorityDataProvider implements JpaDataProvider<UserAuthority> {
+
+
+    private final UserAuthorityMappingRepository userAuthorityMappingRepository;
+
+
+    @Override
+    public JpaRepository<UserAuthority, Long> getRepository() {
+        return userAuthorityMappingRepository;
+    }
+
+
+    @Override
+    public UserAuthority provide() {
+        var authority = new UserAuthority();
+
+        authority.setUsername(faker.internet().emailAddress());
+        authority.setAuthorityId(faker.code().isbn10());
+
+        return authority;
+    }
+
+
+}
+
+
