@@ -1,6 +1,7 @@
 package com.julianduru.security;
 
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,6 +26,7 @@ public class ContextLoadingTest {
 
 
     @Test
+    @Disabled
     public void testContextLoads() {
         System.out.println("Context Loaded");
     }
