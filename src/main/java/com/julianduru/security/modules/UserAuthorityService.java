@@ -2,6 +2,7 @@ package com.julianduru.security.modules;
 
 
 import com.julianduru.security.Auth;
+import com.julianduru.security.api.UserAuthMapping;
 import com.julianduru.security.entity.UserAuthority;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 public interface UserAuthorityService {
 
 
-    UserAuthority save(String username, String authority);
+    UserAuthority save(UserAuthMapping authMapping);
 
 
     List<UserAuthority> getByUser(String username);

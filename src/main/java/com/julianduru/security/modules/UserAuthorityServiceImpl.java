@@ -1,6 +1,7 @@
 package com.julianduru.security.modules;
 
 
+import com.julianduru.security.api.UserAuthMapping;
 import com.julianduru.security.entity.UserAuthority;
 import com.julianduru.security.repository.UserAuthorityMappingRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,20 +23,16 @@ public class UserAuthorityServiceImpl implements UserAuthorityService {
 
 
     @Override
-    public UserAuthority save(String username, String authority) {
-        var existingUserAuth = userAuthorityMappingRepository
+    public UserAuthority save(UserAuthMapping authMapping) {
+        var userAuthority = userAuthorityMappingRepository
             .findByUsernameAndAuthorityId(
-                username, authority
-            );
-
-        if (existingUserAuth.isPresent()) {
-            return existingUserAuth.get();
-        }
-
-        var userAuthority = new UserAuthority();
+                authMapping.getUsername(), authMapping.getAuthority()
+            )
+            .orElse(new UserAuthority());
         
-        userAuthority.setUsername(username);
-        userAuthority.setAuthorityId(authority);
+        userAuthority.setUsername(authMapping.getUsername());
+        userAuthority.setAuthorityId(authMapping.getAuthority());
+        userAuthority.setFileReferences(authMapping.getFileReferences());
 
         return userAuthorityMappingRepository.save(userAuthority);
     }
