@@ -2,3 +2,4 @@ security-lib.iml
 .idea
 target
 *.iml
+*.log
