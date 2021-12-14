@@ -1,6 +1,7 @@
 package com.julianduru.security;
 
 
+import com.julianduru.security.config.TestConfig;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -13,13 +14,8 @@ import org.springframework.test.context.ActiveProfiles;
  */
 @SpringBootTest(
     classes = {
+        TestConfig.class,
         SecurityLibAutoConfiguration.class,
-    }
-)
-@EnableAutoConfiguration
-@EnableJpaRepositories(
-    basePackages = {
-        "com.julianduru.security.repository"
     }
 )
 public class ContextLoadingTest {

@@ -8,6 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * created by julian
  */
@@ -31,6 +34,15 @@ public class UserAuthorityDataProvider implements JpaDataProvider<UserAuthority>
 
         authority.setUsername(faker.internet().emailAddress());
         authority.setAuthorityId(faker.code().isbn10());
+        authority.setFileReferences(
+            new ArrayList<>(
+                Arrays.asList(
+                    faker.code().isbn10(false),
+                    faker.code().isbn10(false),
+                    faker.code().isbn10(false)
+                )
+            )
+        );
 
         return authority;
     }
