@@ -35,7 +35,7 @@
     </changeSet>
 
     <changeSet author="dduru (generated)" id="1639490584240-3">
-        <addForeignKeyConstraint baseColumnNames="user_authority_id" baseTableName="user_authority_file_references" constraintName="FK8cduyitgpdpvshivwchl1o7hr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sec_user_authority" validate="true"/>
+        <addForeignKeyConstraint baseColumnNames="user_authority_id" baseTableName="user_authority_file_references" constraintName="FK8cduyitgpdpvshivwchl1o7hr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sec_user_authority" />
     </changeSet>
 
 </databaseChangeLog>
