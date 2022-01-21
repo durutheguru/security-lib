@@ -37,6 +37,7 @@ public interface UserAuthorityService {
 
     void removeUserAuthority(String username, String authority);
 
+    List<UserAuthority> fetchAllByAuthorityId(String authorityId) throws Exception;
 
 }
 

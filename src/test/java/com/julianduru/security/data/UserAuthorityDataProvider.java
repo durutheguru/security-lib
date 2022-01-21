@@ -2,7 +2,7 @@ package com.julianduru.security.data;
 
 
 import com.julianduru.security.entity.UserAuthority;
-import com.julianduru.security.repository.UserAuthorityMappingRepository;
+import com.julianduru.security.repository.UserAuthorityRepository;
 import com.julianduru.util.test.JpaDataProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,12 +19,12 @@ import java.util.Arrays;
 public class UserAuthorityDataProvider implements JpaDataProvider<UserAuthority> {
 
 
-    private final UserAuthorityMappingRepository userAuthorityMappingRepository;
+    private final UserAuthorityRepository userAuthorityRepository;
 
 
     @Override
     public JpaRepository<UserAuthority, Long> getRepository() {
-        return userAuthorityMappingRepository;
+        return userAuthorityRepository;
     }
 
 
