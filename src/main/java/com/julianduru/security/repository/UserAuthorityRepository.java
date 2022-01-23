@@ -12,7 +12,7 @@ import java.util.Optional;
  * created by julian
  */
 @Repository
-public interface UserAuthorityMappingRepository extends JpaRepository<UserAuthority, Long> {
+public interface UserAuthorityRepository extends JpaRepository<UserAuthority, Long> {
 
 
     List<UserAuthority> findByUsername(String username);
@@ -26,6 +26,7 @@ public interface UserAuthorityMappingRepository extends JpaRepository<UserAuthor
 
     Optional<UserAuthority> findByUsernameAndAuthorityId(String username, String authorityId);
 
+    Optional<List<UserAuthority>> findAllByAuthorityId(String authorityId);
 
 }
 
