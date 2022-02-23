@@ -24,6 +24,7 @@ public class UserAuthority extends BaseEntity {
 
 
     @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "sec_user_authority_file_references", joinColumns = @JoinColumn(name = "user_authority_id"))
     private List<String> fileReferences;
 
 
