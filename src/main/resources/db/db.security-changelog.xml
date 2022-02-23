@@ -38,4 +38,6 @@
         <addForeignKeyConstraint baseColumnNames="user_authority_id" baseTableName="user_authority_file_references" constraintName="FK8cduyitgpdpvshivwchl1o7hr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sec_user_authority" />
     </changeSet>
 
+    <include file="classpath:db/changelog/sec_migration.0001.xml" relativeToChangelogFile="false" />
+
 </databaseChangeLog>
