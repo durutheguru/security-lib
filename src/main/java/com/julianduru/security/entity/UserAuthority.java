@@ -3,10 +3,7 @@ package com.julianduru.security.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -26,7 +23,7 @@ public class UserAuthority extends BaseEntity {
     private String authorityId;
 
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> fileReferences;
 
 
