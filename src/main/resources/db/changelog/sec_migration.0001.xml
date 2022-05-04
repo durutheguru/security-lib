@@ -1,5 +1,6 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
     <changeSet author="dduru (generated)" id="1645646633226-1">
         <createTable tableName="sec_user_authority_file_references">
             <column name="user_authority_id" type="BIGINT">
@@ -8,13 +9,22 @@
             <column name="file_references" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
+
     <changeSet author="dduru (generated)" id="1645646633226-2">
         <addForeignKeyConstraint baseColumnNames="user_authority_id" baseTableName="sec_user_authority_file_references" constraintName="FKo38mqrk0r8kijho0uf0g2vn5n" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="sec_user_authority" validate="true"/>
     </changeSet>
+
     <changeSet author="dduru (generated)" id="1645646633226-3">
         <dropForeignKeyConstraint baseTableName="user_authority_file_references" constraintName="FK8cduyitgpdpvshivwchl1o7hr"/>
     </changeSet>
+
     <changeSet author="dduru (generated)" id="1645646633226-4">
         <dropTable tableName="user_authority_file_references"/>
     </changeSet>
+
+    <changeSet  author="dduru"  id="1651691503000-45">
+        <modifyDataType columnName="time_added" newDataType="VARCHAR(30)" tableName="sec_user_authority" />
+        <modifyDataType columnName="time_updated" newDataType="VARCHAR(30)" tableName="sec_user_authority" />
+    </changeSet>
+
 </databaseChangeLog>
