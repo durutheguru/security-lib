@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * created by julian
@@ -77,12 +78,26 @@ public class UserAuthorityServiceImpl implements UserAuthorityService {
             return authorized;
         }
         else {
-            throw new SecurityException("User not authorized");
+            throw new SecurityException(
+                String.format("User '%s' not authorized with '%s'", username, authority)
+            );
         }
+    }
+
+    @Override
+    public boolean usersAuthorized(Set<String> usernames, String authority, boolean errorIfNot) {
+        var authorized = true;
+
+        for (String username : usernames) {
+            authorized &= isUserAuthorized(username, authority, errorIfNot);
+        }
+
+        return authorized;
     }
 
 
 }
+
 
 
 

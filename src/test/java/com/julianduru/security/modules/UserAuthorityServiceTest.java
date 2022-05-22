@@ -73,4 +73,7 @@ public class UserAuthorityServiceTest {
         assertThat(savedAuthority).isNotNull();
     }
 
+
 }
+
+
