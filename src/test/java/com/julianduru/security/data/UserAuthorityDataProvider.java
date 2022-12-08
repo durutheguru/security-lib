@@ -1,9 +1,10 @@
 package com.julianduru.security.data;
 
 
+import com.julianduru.jpa.provider.JpaDataProvider;
 import com.julianduru.security.entity.UserAuthority;
 import com.julianduru.security.repository.UserAuthorityRepository;
-import com.julianduru.util.test.JpaDataProvider;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;

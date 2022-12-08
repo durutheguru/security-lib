@@ -1,6 +1,8 @@
 package com.julianduru.security.entity;
 
 
+import com.julianduru.jpa.entity.BaseEntity;
+
 import lombok.Data;
 
 import javax.persistence.*;
